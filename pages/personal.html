@@ -1,71 +1,248 @@
+<!-- ============================================================
+     pages/personal.html
+     EDIT: Bio lines, handle, and links
+     ============================================================ -->
+
 <div class="page-inner">
 
-      <div class="page-header">
-        <p class="page-eyebrow">Who I Am</p>
-        <h2 class="page-title">Personal <em>Info</em></h2>
+  <div class="personal-new-layout">
+
+    <!-- ── LEFT ── -->
+    <div class="personal-left">
+
+      <p class="personal-greeting">Yo, I'm</p>
+      <h1 class="personal-bigname">Akash <em>Reddy</em></h1>
+
+      <div class="personal-divider"></div>
+
+      <!-- EDIT: Your bio lines -->
+      <div class="personal-bio">
+        <p>Techie. Software Developer. AI Enthusiast.</p>
+        <p> Travel & Adventure seeker. </p>
+        <p>-----------------------------------------</p>
+        <p>Currently based in Raleigh, NC, USA. </p>
+        <p>Originally from Hyderabad, INDIA.</p>
       </div>
 
-      <div class="personal-layout">
+      <div class="personal-divider"></div>
 
-        <!-- LEFT: About Me text -->
-        <div class="about-text">
+      <!-- Work CTA -->
+      <p class="personal-work-label">Got something in mind?</p>
+      <p class="personal-work-sub">Reach out for Work, Collabs, or to Build something together.</p>
 
-          <!-- EDIT: Change these paragraphs to describe yourself -->
-          <p>Hey — I'm <strong>Akash Reddy V</strong>, a software developer based in the US. I'm passionate about building things that are both technically solid and genuinely useful.</p>
-
-          <p>At <strong>Zoetis</strong>, I work on manufacturing automation software — connecting hardware, databases, and user interfaces into seamless workflows. I love the challenge of bridging the physical and digital worlds.</p>
-
-          <p>Outside of work, I'm a curious person who explores ideas across tech, investing, and content creation. I believe in learning out loud and sharing the journey.</p>
-
-          <!-- EDIT: Add more paragraphs about yourself here if you want -->
-
-          <div class="divider"></div>
-
-          <!-- EDIT: Add any personal links or facts here -->
-          <div class="tags">
-            <span class="tag">Durham, NC</span>
-            <span class="tag">Software Developer</span>
-            <span class="tag">Investor</span>
-            <span class="tag">Creator</span>
-          </div>
-
-          <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;">
-            <a href="https://www.linkedin.com/in/akashreddyv/" target="_blank" class="btn btn-primary">LinkedIn Profile</a>
-            <a href="https://www.instagram.com/ak.r48" target="_blank" class="btn btn-outline">Instagram</a>
-          </div>
-        </div>
-
-        <!-- RIGHT: Instagram block -->
-        <div class="ig-block">
-          <div class="ig-header">
-            <div class="ig-icon">
-              <!-- Instagram SVG icon -->
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </div>
-            <div>
-              <!-- EDIT: Your Instagram handle -->
-              <div class="ig-handle-name">@ak.r48</div>
-              <div class="ig-handle-sub">Instagram</div>
-            </div>
-          </div>
-
-          <div class="ig-note">
-            📸 Instagram's API requires app approval from Meta to show live posts. Visit the profile directly to see all photos and videos.
-          </div>
-
-          <!-- Placeholder grid — replace with real embeds if you get API access -->
-          <div class="ig-grid">
-            <div class="ig-cell">📷</div>
-            <div class="ig-cell">🌅</div>
-            <div class="ig-cell">✨</div>
-            <div class="ig-cell">🎯</div>
-            <div class="ig-cell">🌐</div>
-            <div class="ig-cell">💡</div>
-          </div>
-
-          <!-- EDIT: Your Instagram URL -->
-          <a href="https://www.instagram.com/ak.r48" target="_blank" class="ig-btn">View on Instagram →</a>
-        </div>
-
+      <div class="personal-cta" style="margin-top: 24px;">
+        <button class="btn btn-primary" onclick="loadPage('contact')">get in touch</button>
+        <a href="https://www.instagram.com/ak.r48" target="_blank" class="btn btn-outline">@ak.r48</a>
       </div>
+
     </div>
+
+    <!-- ── RIGHT: Instagram card ── -->
+    <div class="personal-right">
+
+      <div class="ig-card">
+
+        <div class="ig-card-header">
+          <div class="ig-avatar">
+            <img src="https://cdn.simpleicons.org/instagram/white" width="20" height="20" alt="ig"/>
+          </div>
+          <div>
+            <div class="ig-card-handle">@ak.r48</div>
+            <div class="ig-card-sub">Instagram</div>
+          </div>
+          <a href="https://www.instagram.com/ak.r48" target="_blank" class="ig-follow-btn">Follow</a>
+        </div>
+
+        <p class="ig-card-note">
+          live feed requires Meta app approval — see the real thing on instagram 👇
+        </p>
+
+        <div class="ig-placeholder-grid">
+          <div class="ig-ph-cell" style="background:#1a1a1a;"></div>
+          <div class="ig-ph-cell" style="background:#161616;"></div>
+          <div class="ig-ph-cell" style="background:#1c1c1c;"></div>
+          <div class="ig-ph-cell" style="background:#181818;"></div>
+          <div class="ig-ph-cell" style="background:#1a1a1a;"></div>
+          <div class="ig-ph-cell" style="background:#141414;"></div>
+        </div>
+
+        <a href="https://www.instagram.com/ak.r48" target="_blank" class="ig-view-profile">
+          <img src="https://cdn.simpleicons.org/instagram/e8c97e" width="16" height="16" alt="ig"/>
+          view on instagram
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+  .personal-new-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+  }
+
+  .personal-greeting {
+    font-size: 15px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+
+  .personal-bigname {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 78px);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--white);
+  }
+
+  .personal-bigname em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .personal-divider {
+    width: 36px;
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  .personal-bio {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .personal-bio p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+
+  .personal-work-label {
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .personal-work-sub {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 340px;
+  }
+
+  .personal-cta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  /* Instagram card */
+  .ig-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 24px;
+  }
+
+  .ig-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .ig-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .ig-card-handle { font-size: 15px; font-weight: 500; color: var(--white); }
+  .ig-card-sub    { font-size: 12px; color: var(--muted); }
+
+  .ig-follow-btn {
+    margin-left: auto;
+    padding: 7px 18px;
+    background: var(--accent);
+    color: #0a0a0a;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background 0.3s;
+    cursor: none;
+    white-space: nowrap;
+  }
+  .ig-follow-btn:hover { background: var(--white); }
+
+  .ig-card-note {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 18px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+  }
+
+  .ig-placeholder-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .ig-ph-cell {
+    aspect-ratio: 1;
+    position: relative;
+  }
+
+  .ig-ph-cell::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(232,201,126,0.04), transparent);
+  }
+
+  .ig-view-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    transition: all 0.3s;
+    cursor: none;
+  }
+  .ig-view-profile:hover { border-color: var(--accent); color: var(--accent); }
+
+  @media (max-width: 900px) {
+    .personal-new-layout {
+      grid-template-columns: 1fr;
+      gap: 48px;
+      min-height: unset;
+    }
+  }
+</style>
