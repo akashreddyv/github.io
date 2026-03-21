@@ -456,16 +456,6 @@ nav {
 .social-card:hover::before { opacity: 1; }
 
 /* Per-platform hover tints */
-/* ----------------------------------------------------------------
-   SOCIALS GRID
-   Uses auto-fill so any number of cards wraps cleanly.
-   Min card width 220px — fits 4 on wide screens, 2 on tablet, 1 on mobile.
----------------------------------------------------------------- */
-.socials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-}
 .sc-instagram::before { background: linear-gradient(135deg, rgba(245,133,41,.1), rgba(221,42,123,.1), rgba(81,91,212,.1)); }
 .sc-instagram:hover   { box-shadow: 0 20px 50px rgba(221,42,123,.18); }
 .sc-linkedin::before  { background: linear-gradient(135deg, rgba(10,102,194,.14), transparent); }
@@ -480,8 +470,8 @@ nav {
 .sc-discord:hover     { box-shadow: 0 20px 50px rgba(88,101,242,.18); }
 .sc-threads::before   { background: linear-gradient(135deg, rgba(255,255,255,.04), transparent); }
 .sc-threads:hover     { box-shadow: 0 20px 50px rgba(255,255,255,.07); }
-.sc-facebook::before  { background: linear-gradient(135deg, rgba(10,102,194,.14), transparent); }
-.sc-facebook::hover    { box-shadow: 0 20px 50px rgba(10,102,194,.18); }
+.sc-facebook::before  { background: linear-gradient(135deg, rgba(24,119,242,.14), transparent); }
+.sc-facebook:hover    { box-shadow: 0 20px 50px rgba(24,119,242,.18); }
 
 .social-icon   { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
 .social-name   { font-family: var(--font-display); font-size: 18px; color: var(--white); }
@@ -560,7 +550,90 @@ footer p     { font-size: 12px; color: var(--muted); }
 }
 
 
+/* ----------------------------------------------------------------
+   EDUCATION SECTION
+---------------------------------------------------------------- */
+.edu-section { margin-bottom: 60px; }
 
+/* Small row — high school + junior college side by side */
+.edu-row-small {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.edu-card-small {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 16px 20px;
+  transition: border-color 0.3s;
+}
+.edu-card-small:hover { border-color: #333; }
+
+/* Big row — 3 university cards */
+.edu-row-big {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.edu-card-big {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 24px 20px;
+  transition: border-color 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.edu-card-big::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.edu-card-big:hover { border-color: #333; transform: translateY(-3px); }
+.edu-card-big:hover::after { transform: scaleX(1); }
+
+.edu-logo { border-radius: 8px; flex-shrink: 0; }
+
+.edu-card-content { display: flex; flex-direction: column; gap: 4px; }
+
+.edu-name     { font-size: 14px; font-weight: 500; color: var(--white); line-height: 1.4; }
+.edu-location { font-size: 12px; color: var(--muted); }
+.edu-degree   { font-size: 13px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+.edu-year     { font-size: 12px; color: var(--accent); margin-top: 4px; letter-spacing: 0.05em; }
+.edu-meta     { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .edu-row-small,
+  .edu-row-big { grid-template-columns: 1fr; }
+}
+
+
+/* ----------------------------------------------------------------
+   SOCIALS GRID
+   Uses auto-fill so any number of cards wraps cleanly.
+   Min card width 220px — fits 4 on wide screens, 2 on tablet, 1 on mobile.
+---------------------------------------------------------------- */
+.socials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
 
 
 /* ----------------------------------------------------------------
