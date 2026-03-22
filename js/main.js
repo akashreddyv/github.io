@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const email = document.getElementById('form-email').value;
     const msg   = document.getElementById('form-msg').value;
 
-    const to = 'your@email.com'; // CHANGE THIS
+    const to = 'akashreddyvurenuka@gmail.com'; // EMail address to receive messages
     window.location.href = `mailto:${to}?subject=Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(msg + '\n\nFrom: ' + email)}`;
   };
 
