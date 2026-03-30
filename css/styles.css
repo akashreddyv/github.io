@@ -25,10 +25,10 @@
    Change these to restyle the whole site at once.
 ---------------------------------------------------------------- */
 :root {
-  --bg:       #0a0a0a;   /* Main background          */
+  --bg:       #000000;   /* Main background          */
   --surface:  #111111;   /* Slightly lighter bg       */
-  --card:     #161616;   /* Card backgrounds          */
-  --border:   #242424;   /* Borders / dividers        */
+  --card:     #111111;   /* Card backgrounds          */
+  --border:   #111111;   /* Borders / dividers        */
   --accent:   #e8c97e;   /* Gold highlight color      */
   --text:     #f0ece4;   /* Main body text            */
   --muted:    #888888;   /* Secondary / dimmed text   */
@@ -115,7 +115,7 @@ nav {
   justify-content: space-between;
   padding: 0 60px;
   height: 72px;
-  background: rgba(10, 10, 10, 0.94);
+  background: rgba(0, 0, 0, 0.94);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
 }

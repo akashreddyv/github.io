@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Raptor Logo</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #000; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+
+<div style="position: absolute; top: 10px; left: 10px; z-index: 100; background: rgba(0,0,0,0.7); padding: 10px; border-radius: 5px; color: white;">
+    <div>
+        <label for="colorPicker">Color:</label>
+        <input type="color" id="colorPicker" value="#B22222">
+    </div>
+    <div>
+        <label for="metalnessSlider">Metalness: <span id="metalnessValue">0.1</span></label>
+        <input type="range" id="metalnessSlider" min="0" max="1" step="0.01" value="0.1">
+    </div>
+    <div>
+        <label for="roughnessSlider">Roughness: <span id="roughnessValue">0.01</span></label>
+        <input type="range" id="roughnessSlider" min="0" max="1" step="0.01" value="0.01">
+    </div>
+</div>
+
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+</script>
+
+<script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { SVGLoader } from 'three/addons/loaders/SVGLoader.js';
+
+    // 1. Setup Scene, Camera, and Renderer
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x000000, 0.002);
+
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 2000);
+    camera.position.set(0, 0, 600);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // 2. Add Lighting (Crucial for the metallic look)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 2.5);
+    directionalLight.position.set(200, 200, 300);
+    scene.add(directionalLight);
+
+    const pointLight = new THREE.PointLight(0xffaaaa, 2, 500);
+    pointLight.position.set(0, 0, 100);
+    scene.add(pointLight);
+
+    const spotLight = new THREE.SpotLight(0xffffff, 10);
+    spotLight.position.set(0, 1000, 0);
+    spotLight.target.position.set(0, 0, 0);
+    spotLight.angle = Math.PI / 12; // 15 degrees
+    spotLight.penumbra = 0.1;
+    spotLight.decay = 2;
+    spotLight.distance = 5000; // Very lengthy vertically
+    scene.add(spotLight);
+    scene.add(spotLight.target);
+
+    // 3. The SVG String (Your provided code, without the black background rect)
+    const svgString = `
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="238,422 103,310 177,61 133,308 238,422" fill="#D61600" opacity="0.95"/>
+            <polygon points="238,421 133,307 176,62 166,307 238,421" fill="#1E0000" opacity="0.95"/>
+            <polygon points="212,308 246,309 245,74 212,308" fill="#F81300" opacity="0.95"/>
+            <polygon points="212,308 245,414 278,308 212,308" fill="#731604" opacity="0.95"/>
+            <polygon points="246,308 278,307 245,73 246,307" fill="#C91900" opacity="0.95"/>
+            <polygon points="252,422 357,307 313,60 325,307 252,421" fill="#1E0000" opacity="0.95"/>
+            <polygon points="252,421 387,310 313,61 357,306 252,420" fill="#D61600" opacity="0.95"/>
+        </svg>
+    `;
+
+    // 4. Parse the SVG and create 3D Geometry
+    const loader = new SVGLoader();
+    const svgData = loader.parse(svgString);
+
+    // Group to hold all the extruded parts
+    const logoGroup = new THREE.Group();
+    // Center the geometry
+    logoGroup.position.x = -250; 
+    logoGroup.position.y = 250; 
+    // Invert Y because SVG coordinates go down, but Three.js goes up
+    logoGroup.scale.y = -1; 
+
+    // Extrusion settings (Depth and Bevel)
+    const extrudeSettings = {
+        depth: 25,          // Thickness of the logo
+        bevelEnabled: true, // Softens sharp edges slightly to catch light
+        bevelThickness: 2,
+        bevelSize: 1.5,
+        bevelSegments: 3
+    };
+
+    // Create the material for the logo
+    const logoMaterial = new THREE.MeshStandardMaterial({
+        color: 0xB22222,       // Bright blood red color
+        emissive: 0x441111,    // Add emissive glow to brighten
+        metalness: 0.1,          // Low metalness for crystal look
+        roughness: 0.01,         // Extremely low roughness for glossy finish
+        transmission: 0.5,       // Transmission for crystal transparency
+        opacity: 0.8,            // Slight transparency
+        ior: 1.5,                // Index of refraction for crystal
+        side: THREE.DoubleSide
+    });
+
+    // Loop through each polygon path in the SVG
+    for (const path of svgData.paths) {
+
+        const shapes = SVGLoader.createShapes(path);
+
+        for (const shape of shapes) {
+            const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+            const mesh = new THREE.Mesh(geometry, logoMaterial);
+            logoGroup.add(mesh);
+        }
+    }
+
+    // Add the assembled 3D logo to the scene
+    scene.add(logoGroup);
+
+    // Color picker functionality
+    document.getElementById('colorPicker').addEventListener('input', (event) => {
+        const color = new THREE.Color(event.target.value);
+        logoMaterial.color.set(color);
+    });
+
+    // Metalness slider
+    document.getElementById('metalnessSlider').addEventListener('input', (event) => {
+        const value = parseFloat(event.target.value);
+        logoMaterial.metalness = value;
+        document.getElementById('metalnessValue').textContent = value.toFixed(2);
+    });
+
+    // Roughness slider
+    document.getElementById('roughnessSlider').addEventListener('input', (event) => {
+        const value = parseFloat(event.target.value);
+        logoMaterial.roughness = value;
+        document.getElementById('roughnessValue').textContent = value.toFixed(2);
+    });
+
+    // 5. Setup Interactive Controls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; // Smooth rotation
+    controls.dampingFactor = 0.05;
+
+    // Center the camera on the logo
+    const box = new THREE.Box3().setFromObject(logoGroup);
+    const center = box.getCenter(new THREE.Vector3());
+    logoGroup.position.sub(center); // Re-center based on bounding box
+
+    // 6. Animation Loop
+    function animate() {
+        requestAnimationFrame(animate);
+        
+        // Optional: Add a slow idle rotation
+        // logoGroup.rotation.x += 0.02;
+
+        controls.update();
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Handle Window Resizing
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+</script>
+</body>
+</html>

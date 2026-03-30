@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const htmlText = await response.text();
 
       console.log(`Fetched pages/${name}.html length:`, htmlText.length);
-      // Keep our markup safe: strip <script> tags from included fragments
-      const cleaned = htmlText.replace(/<script[\s\S]*?<\/script>/gi, '');
+      // Keep our markup safe: strip <script> tags from included fragments (except for RCG which needs scripts)
+      const cleaned = name === 'RCG' ? htmlText : htmlText.replace(/<script[\s\S]*?<\/script>/gi, '');
 
       // Use temp container to force browser to parse all HTML before injecting
       const temp = document.createElement('div');
@@ -26,6 +26,24 @@ document.addEventListener("DOMContentLoaded", function () {
       contentDiv.innerHTML = '';
       while (temp.firstChild) {
         contentDiv.appendChild(temp.firstChild);
+      }
+
+      // Execute scripts if this is the RCG page
+      if (name === 'RCG') {
+        const scripts = contentDiv.querySelectorAll('script');
+        scripts.forEach(script => {
+          if (script.src) {
+            // External script
+            const newScript = document.createElement('script');
+            newScript.src = script.src;
+            document.head.appendChild(newScript);
+          } else {
+            // Inline script
+            const newScript = document.createElement('script');
+            newScript.textContent = script.textContent;
+            document.head.appendChild(newScript);
+          }
+        });
       }
 
       const cardCount = contentDiv.querySelectorAll('a.social-card').length;
@@ -97,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ── Cursor Event Binder (NEW) ──
   // Wrapped in a function so it can be called after new HTML is injected
   function attachCursorEvents() {
-    document.querySelectorAll('a, button, .home-card, .social-card').forEach(el => {
+    document.querySelectorAll('a, button, .home-card, .social-card, .project-card').forEach(el => {
       // Using onmouseenter instead of addEventListener to prevent duplicate events on page swap
       el.onmouseenter = () => {
         cursor.style.width = '16px';
