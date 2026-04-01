@@ -45,11 +45,11 @@
         body.mode-crystal .crystal-only { display: flex; }
     </style>
 </head>
-<body class="mode-crystal">
+<body class="mode-flat">
 
 <div id="toggle">
-    <button id="btnFlat">Logo 1 </button>
-    <button id="btnCrystal" class="active">Logo 2</button>
+    <button id="btnFlat" class="active">Logo 1</button>
+    <button id="btnCrystal">Logo 2</button>
     
 </div>
 
@@ -254,13 +254,13 @@ const extCenter = extBox.getCenter(new THREE.Vector3());
 extrudeGroup.position.sub(extCenter);
 
 // Start hidden
-extrudeGroup.visible = false;
+crystalGroup.visible = false;
 
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 //  Toggle logic
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-let activeMode = 'crystal';
+let activeMode = 'flat';
 
 function setMode(mode) {
     activeMode = mode;
