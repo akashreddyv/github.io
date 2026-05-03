@@ -3,11 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // ── Per-page SEO metadata ──────────────────────────────────────
   const PAGE_META = {
     home: {
-      title:       'Vurenuka Akash Reddy | Software Developer in Durham, NC',
+      title:       'Akash Reddy | Software Developer in Durham, NC',
       description: 'Personal site of Vurenuka Akash Reddy (Akash Reddy, V Akash Reddy) — Software Developer at Zoetis in Durham, NC. Explore work, projects, and more.',
       canonical:   'https://reachakash.com/',
       ogType:      'profile',
-      ogTitle:     'Vurenuka Akash Reddy — Software Developer',
+      ogTitle:     'Akash Reddy — Software Developer',
       ogDesc:      'Akash Reddy (V Akash Reddy) is a software developer at Zoetis based in Durham, NC. Explore his work, projects, and background at reachakash.com.',
       jsonld: {
         '@context': 'https://schema.org',
