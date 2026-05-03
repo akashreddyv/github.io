@@ -1,8 +1,4 @@
-<!-- ============================================================
-     pages/personal.html
-     EDIT: Bio lines, handle, and links
-     ============================================================ -->
-
+<!-- pages/personal.html -->
 <div class="page-inner">
 
   <div class="personal-new-layout">
@@ -15,26 +11,30 @@
 
       <div class="personal-divider"></div>
 
-      <!-- EDIT: Your bio lines -->
       <div class="personal-bio">
         <p>Techie. Software Developer. AI Enthusiast.</p>
-        <p>Travel & Adventure seeker. </p>
+        <p>Travel &amp; Adventure seeker.</p>
         <p>-----------------------------------------</p>
-        <p>Currently based in Raleigh, NC, USA. </p>
+        <p>Currently based in Raleigh, NC, USA.</p>
         <p>Originally from Hyderabad, INDIA.</p>
       </div>
 
       <div class="personal-divider"></div>
 
-      <!-- Work CTA -->
       <p class="personal-work-label">Got something in mind?</p>
       <p class="personal-work-sub">Reach out for Work, Collabs, or to Build something together.</p>
 
       <div class="personal-cta" style="margin-top: 24px;">
-        <button class="btn btn-primary" onclick="showPage('contact')" data-page="contact">get in touch</button>
-        
-        <a href="https://www.instagram.com/ak.r48" target="_blank" class="btn btn-outline">@ak.r48</a>
+        <button class="btn btn-primary" onclick="navigate('/contact')">get in touch</button>
+        <a href="https://www.instagram.com/ak.r48" target="_blank" rel="noopener" class="btn btn-outline">@ak.r48</a>
       </div>
+
+      <!-- Internal navigation -->
+      <nav class="page-nav-links" aria-label="Explore more" style="margin-top:40px;padding-top:24px;">
+        <span>Explore:</span>
+        <a href="/professional">Professional Experience →</a>
+        <a href="/projects">Projects &amp; Portfolio →</a>
+      </nav>
 
     </div>
 
@@ -45,13 +45,13 @@
 
         <div class="ig-card-header">
           <div class="ig-avatar">
-            <img src="https://cdn.simpleicons.org/instagram/white" width="20" height="20" alt="ig"/>
+            <img src="https://cdn.simpleicons.org/instagram/white" width="20" height="20" alt="Instagram" loading="lazy" decoding="async"/>
           </div>
           <div>
             <div class="ig-card-handle">@ak.r48</div>
-            <div class="ig-card-sub">Instagram</div>
+            <div class="ig-card-sub">Instagram · Akash Reddy</div>
           </div>
-          <button class="btn btn-primary" onclick="showPage('contact')" data-page="contact">get in touch</button>
+          <button class="btn btn-primary" onclick="navigate('/contact')">get in touch</button>
         </div>
 
         <p class="ig-card-note">
@@ -67,8 +67,8 @@
           <div class="ig-ph-cell" style="background:#141414;"></div>
         </div>
 
-        <a href="https://www.instagram.com/ak.r48" target="_blank" class="ig-view-profile">
-          <img src="https://cdn.simpleicons.org/instagram/e8c97e" width="16" height="16" alt="ig"/>
+        <a href="https://www.instagram.com/ak.r48" target="_blank" rel="noopener" class="ig-view-profile">
+          <img src="https://cdn.simpleicons.org/instagram/e8c97e" width="16" height="16" alt="Instagram" loading="lazy" decoding="async"/>
           view on instagram
         </a>
 
@@ -176,21 +176,6 @@
 
   .ig-card-handle { font-size: 15px; font-weight: 500; color: var(--white); }
   .ig-card-sub    { font-size: 12px; color: var(--muted); }
-
-  .ig-follow-btn {
-    margin-left: auto;
-    padding: 7px 18px;
-    background: var(--accent);
-    color: #0a0a0a;
-    font-size: 13px;
-    font-weight: 500;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: background 0.3s;
-    cursor: none;
-    white-space: nowrap;
-  }
-  .ig-follow-btn:hover { background: var(--white); }
 
   .ig-card-note {
     font-size: 13px;

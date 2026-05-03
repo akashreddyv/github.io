@@ -63,6 +63,7 @@
     <label>Roughness <input type="range" id="roughness" min="0" max="1" step="0.01" value="0.03"> <span class="val" id="roughnessV">0.03</span></label>
     <label class="crystal-only">Depth <input type="range" id="depth" min="0.3" max="3" step="0.05" value="1.0"> <span class="val" id="depthV">1.00</span></label>
     <label class="crystal-only">Opacity <input type="range" id="opacity" min="0.3" max="1" step="0.01" value="0.88"> <span class="val" id="opacityV">0.88</span></label>
+    <label>Speed <input type="range" id="rotSpeed" min="0" max="5" step="0.1" value="1.0"> <span class="val" id="rotSpeedV">1.0</span></label>
 </div>
 
 <script type="importmap">
@@ -87,7 +88,8 @@ const $ = id => document.getElementById(id);
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, 1, 3000);
-camera.position.set(120, 60, 520);
+camera.position.set(0, 0, 1000);
+camera.lookAt(0, 0, 0);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(devicePixelRatio);
@@ -119,8 +121,10 @@ for (const l of lightDefs) {
 //  Controls
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0, 0);
 controls.enableDamping = true;
 controls.dampingFactor = 0.06;
+controls.update();
 
 
 // ╔════════════════════════════════════════════════════════╗
@@ -198,9 +202,15 @@ function rebuildCrystal() {
         [R.eqL, sy(EQ_Y), 0], [R.eqMidX, sy(EQ_Y), -R.baseHalfZ*ds]
     ), crystalMat));
 
+    // Center at world origin (0,0,0) - same as Logo 2
     const box = new THREE.Box3().setFromObject(crystalGroup);
     const cen = box.getCenter(new THREE.Vector3());
-    crystalGroup.position.set(-cen.x, -cen.y, -cen.z);
+    // Move meshes so the group center is at origin
+    for (const mesh of crystalGroup.children) { 
+        mesh.position.sub(cen);
+    }
+    crystalGroup.position.set(0, 0, 0);
+    crystalGroup.scale.set(1, 1, 1);
 }
 rebuildCrystal();
 
@@ -226,8 +236,7 @@ const extrudeMat = new THREE.MeshStandardMaterial({
 });
 
 const extrudeGroup = new THREE.Group();
-extrudeGroup.position.x = -250;
-extrudeGroup.position.y = 250;
+// Start with no position offset - we'll center it after loading
 extrudeGroup.scale.y = -1;
 
 const loader = new SVGLoader();
@@ -248,10 +257,14 @@ for (const path of svgData.paths) {
 
 scene.add(extrudeGroup);
 
-// Center it
+// Properly center the group at world origin (0,0,0) - same as Logo 1
 const extBox = new THREE.Box3().setFromObject(extrudeGroup);
 const extCenter = extBox.getCenter(new THREE.Vector3());
-extrudeGroup.position.sub(extCenter);
+// Move meshes so the group center is at origin
+for (const mesh of extrudeGroup.children) {
+    mesh.position.sub(extCenter);
+}
+extrudeGroup.position.set(0, 0, 0);
 
 // Start hidden
 crystalGroup.visible = false;
@@ -311,6 +324,12 @@ $('opacity').oninput = e => {
     $('opacityV').textContent = (+e.target.value).toFixed(2);
 };
 
+let rotSpeed = 1.0;
+$('rotSpeed').oninput = e => {
+    rotSpeed = +e.target.value;
+    $('rotSpeedV').textContent = rotSpeed.toFixed(1);
+};
+
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 //  Render
@@ -318,6 +337,17 @@ $('opacity').oninput = e => {
 function animate() {
     requestAnimationFrame(animate);
     controls.update();
+
+    // Spin objects 360 degrees around their center point (at world origin)
+    const delta = rotSpeed * 0.01;
+    crystalGroup.rotation.y += delta;
+    extrudeGroup.rotation.y += delta;
+    
+    // Normalize rotation to prevent floating-point overflow over long periods
+    const TAU = Math.PI * 2;
+    if (crystalGroup.rotation.y > TAU) crystalGroup.rotation.y -= TAU;
+    if (extrudeGroup.rotation.y > TAU) extrudeGroup.rotation.y -= TAU;
+    
     renderer.render(scene, camera);
 }
 animate();

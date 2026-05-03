@@ -73,6 +73,63 @@ body::before {
 
 
 /* ----------------------------------------------------------------
+   SKIP TO CONTENT (accessibility + crawlability)
+---------------------------------------------------------------- */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #0a0a0a;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+  z-index: 10000;
+  transition: top 0.2s;
+}
+.skip-to-content:focus { top: 0; outline: none; }
+
+/* Internal page navigation links */
+.page-nav-links {
+  margin-top: 60px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+.page-nav-links span {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.page-nav-links a {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.page-nav-links a:hover { opacity: 0.7; }
+
+/* Prefers-reduced-motion — disable all animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .cursor, .cursor-ring { display: none !important; }
+  body { cursor: auto !important; }
+}
+
+
+/* ----------------------------------------------------------------
    3. CUSTOM CURSOR
 ---------------------------------------------------------------- */
 .cursor {
@@ -84,7 +141,7 @@ body::before {
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease;
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
 }
 
 .cursor-ring {
@@ -96,7 +153,13 @@ body::before {
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: width 0.25s ease, height 0.25s ease;
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
+}
+
+/* Hide custom cursor on touch / coarse-pointer devices */
+@media (hover: none), (pointer: coarse) {
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none !important; }
 }
 
 .cursor.hover  { width: 16px;  height: 16px; }
@@ -136,7 +199,8 @@ nav {
   list-style: none;
 }
 
-.nav-links button {
+.nav-links button,
+.nav-links a {
   background: none;
   border: none;
   color: var(--muted);
@@ -144,18 +208,21 @@ nav {
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  text-decoration: none;
   padding: 8px 16px;
   border-radius: 2px;
   cursor: none;
   transition: color 0.25s, background 0.25s;
 }
 
-.nav-links button:hover {
+.nav-links button:hover,
+.nav-links a:hover {
   color: var(--text);
   background: rgba(255, 255, 255, 0.04);
 }
 
-.nav-links button.active {
+.nav-links button.active,
+.nav-links a.active {
   color: var(--accent);
   background: rgba(232, 201, 126, 0.08);
 }
@@ -286,6 +353,62 @@ nav {
 /* ----------------------------------------------------------------
    7. HOME PAGE
 ---------------------------------------------------------------- */
+
+/* Photo grid */
+.home-photos {
+  position: relative;
+  z-index: 1;
+  padding: 0 60px 100px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.home-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.home-photo-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  margin: 0;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-photo-item:hover {
+  transform: scale(1.02);
+  border-color: rgba(232, 201, 126, 0.4);
+  box-shadow: 0 16px 48px rgba(232, 201, 126, 0.12);
+}
+
+.home-photo-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.home-photo-item figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  padding: 32px 16px 14px;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.home-photo-item:hover figcaption { opacity: 1; }
+
+
 .home-bg {
   position: fixed;
   inset: 0;
@@ -403,7 +526,8 @@ nav {
 .timeline-content h4    { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
 .timeline-content p     { font-size: 15px; color: var(--muted); line-height: 1.8; }
 
-.skills-section h3      { font-family: var(--font-display); font-size: 28px; color: var(--white); margin-bottom: 28px; }
+.skills-section h3,
+.skills-heading         { font-family: var(--font-display); font-size: 28px; color: var(--white); margin-bottom: 28px; }
 
 
 /* ----------------------------------------------------------------
@@ -531,9 +655,11 @@ footer {
   align-items: center;
 }
 
-.footer-logo { font-family: var(--font-display); font-size: 18px; color: var(--accent); }
-footer p     { font-size: 12px; color: var(--muted); }
-.footer-tag  { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.footer-logo  { font-family: var(--font-display); font-size: 18px; color: var(--accent); }
+footer p      { font-size: 12px; color: var(--muted); }
+.footer-tag   { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.footer-text  { text-align: center; line-height: 1.8; }
+.footer-line2 { display: block; font-size: 11px; color: var(--muted); }
 
 
 /* ----------------------------------------------------------------
@@ -671,6 +797,9 @@ footer p     { font-size: 12px; color: var(--muted); }
   .timeline-date      { padding-top: 0; }
 
   .home-inner         { padding: 40px 24px; }
+
+  .home-photos        { padding: 0 24px 60px; }
+  .home-photos-grid   { grid-template-columns: 1fr; }
 
   footer {
     flex-direction: column;
