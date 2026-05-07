@@ -220,6 +220,49 @@ document.addEventListener("DOMContentLoaded", function () {
           ]
         }
       ]
+    },
+
+    gallery: {
+      title:       'Akash Reddy — Photo Gallery | reachakash.com',
+      description: 'Photos of Akash Reddy (Vurenuka Akash Reddy, V Akash Reddy) — software developer based in Durham, NC, originally from Hyderabad, India.',
+      canonical:   'https://reachakash.com/gallery',
+      ogType:      'website',
+      ogTitle:     'Akash Reddy — Photo Gallery',
+      ogDesc:      'Photo gallery of Vurenuka Akash Reddy (Akash Reddy, V Akash Reddy) — software developer in Durham, NC.',
+      jsonld: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'ImageGallery',
+          name: 'Akash Reddy — Photo Gallery',
+          description: 'Photos of Vurenuka Akash Reddy (Akash Reddy, V Akash Reddy), software developer in Durham, NC, originally from Hyderabad, India.',
+          url: 'https://reachakash.com/gallery',
+          author: { '@type': 'Person', name: 'Vurenuka Akash Reddy', url: 'https://reachakash.com' },
+          image: [
+            {
+              '@type': 'ImageObject',
+              contentUrl: 'https://reachakash.com/images/home/vurenuka-akash-reddy-professional.jpg',
+              name: 'Vurenuka Akash Reddy — Professional Portrait',
+              description: 'Akash Reddy in professional attire outdoors, software developer at Zoetis, Durham NC',
+              width: 1200, height: 847
+            },
+            {
+              '@type': 'ImageObject',
+              contentUrl: 'https://reachakash.com/images/home/akash-reddy-portrait.jpg',
+              name: 'Akash Reddy — Portrait',
+              description: 'V Akash Reddy — candid outdoor portrait, smiling',
+              width: 1200, height: 1600
+            }
+          ]
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://reachakash.com/' },
+            { '@type': 'ListItem', position: 2, name: 'Gallery', item: 'https://reachakash.com/gallery' }
+          ]
+        }
+      ]
     }
   };
 
@@ -254,6 +297,7 @@ document.addEventListener("DOMContentLoaded", function () {
     '/projects':     'projects',
     '/socials':      'socials',
     '/contact':      'contact',
+    '/gallery':      'gallery',
   };
 
   // ── Update all head meta tags for the current page ──

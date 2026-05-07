@@ -775,6 +775,37 @@ footer p      { font-size: 12px; color: var(--muted); }
 
 
 /* ----------------------------------------------------------------
+   Gallery Page
+---------------------------------------------------------------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-item figcaption {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--muted);
+  font-family: var(--font-body);
+}
+
+
+/* ----------------------------------------------------------------
    15. RESPONSIVE (mobile / tablet)
 ---------------------------------------------------------------- */
 @media (max-width: 900px) {

@@ -54,4 +54,21 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://reachakash.com/gallery</loc>
+    <lastmod>2026-05-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://reachakash.com/images/home/vurenuka-akash-reddy-professional.jpg</image:loc>
+      <image:title>Vurenuka Akash Reddy — Professional Portrait, Durham NC</image:title>
+      <image:caption>Akash Reddy (V Akash Reddy) in professional attire outdoors — software developer at Zoetis, Durham NC</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://reachakash.com/images/home/akash-reddy-portrait.jpg</image:loc>
+      <image:title>Akash Reddy — Portrait</image:title>
+      <image:caption>V Akash Reddy (Vurenuka Akash Reddy) — candid outdoor portrait, smiling</image:caption>
+    </image:image>
+  </url>
+
 </urlset>
