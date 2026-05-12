@@ -14,9 +14,7 @@
       <div class="personal-bio">
         <p>Techie. Software Developer. AI Enthusiast.</p>
         <p>Travel &amp; Adventure seeker.</p>
-        <p>-----------------------------------------</p>
-        <p>Currently based in Raleigh, NC, USA.</p>
-        <p>Originally from Hyderabad, INDIA.</p>
+        <p>Currently based in Raleigh, NC. Originally from Hyderabad, India.</p>
       </div>
 
       <div class="personal-divider"></div>
@@ -29,43 +27,40 @@
         <a href="https://www.instagram.com/ak.r48" target="_blank" rel="noopener" class="btn btn-outline">@ak.r48</a>
       </div>
 
-
     </div>
 
-    <!-- ── RIGHT: Instagram card ── -->
+    <!-- ── RIGHT: Quick facts ── -->
     <div class="personal-right">
 
-      <div class="ig-card">
-
-        <div class="ig-card-header">
-          <div class="ig-avatar">
-            <img src="https://cdn.simpleicons.org/instagram/white" width="20" height="20" alt="Instagram" loading="lazy" decoding="async"/>
-          </div>
-          <div>
-            <div class="ig-card-handle">@ak.r48</div>
-            <div class="ig-card-sub">Instagram · Akash Reddy</div>
-          </div>
-          <button class="btn btn-primary" onclick="navigate('/contact')">get in touch</button>
+      <div class="facts-card">
+        <div class="fact-item">
+          <span class="fact-label">Role</span>
+          <span class="fact-value">Software Developer at Zoetis</span>
         </div>
-
-        <p class="ig-card-note">
-          live feed requires Meta app approval — see the real thing on instagram 👇
-        </p>
-
-        <div class="ig-placeholder-grid">
-          <div class="ig-ph-cell" style="background:#1a1a1a;"></div>
-          <div class="ig-ph-cell" style="background:#161616;"></div>
-          <div class="ig-ph-cell" style="background:#1c1c1c;"></div>
-          <div class="ig-ph-cell" style="background:#181818;"></div>
-          <div class="ig-ph-cell" style="background:#1a1a1a;"></div>
-          <div class="ig-ph-cell" style="background:#141414;"></div>
+        <div class="fact-item">
+          <span class="fact-label">Based</span>
+          <span class="fact-value">Raleigh, NC, USA</span>
         </div>
-
-        <a href="https://www.instagram.com/ak.r48" target="_blank" rel="noopener" class="ig-view-profile">
-          <img src="https://cdn.simpleicons.org/instagram/e8c97e" width="16" height="16" alt="Instagram" loading="lazy" decoding="async"/>
-          view on instagram
-        </a>
-
+        <div class="fact-item">
+          <span class="fact-label">From</span>
+          <span class="fact-value">Hyderabad, India</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-label">Stack</span>
+          <span class="fact-value">C# · .NET · PostgreSQL</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-label">Interests</span>
+          <span class="fact-value">AI · Travel · Tech</span>
+        </div>
+        <div class="fact-item">
+          <span class="fact-label">Instagram</span>
+          <a class="fact-value fact-link" href="https://www.instagram.com/ak.r48" target="_blank" rel="noopener">@ak.r48 ↗</a>
+        </div>
+        <div class="fact-item">
+          <span class="fact-label">LinkedIn</span>
+          <a class="fact-value fact-link" href="https://www.linkedin.com/in/akashreddyv/" target="_blank" rel="noopener">akashreddyv ↗</a>
+        </div>
       </div>
 
     </div>
@@ -144,79 +139,50 @@
     flex-wrap: wrap;
   }
 
-  /* Instagram card */
-  .ig-card {
+  /* Facts card */
+  .facts-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
-    padding: 24px;
   }
 
-  .ig-card-header {
+  .fact-item {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
+    align-items: baseline;
+    gap: 16px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
   }
 
-  .ig-avatar {
-    width: 42px; height: 42px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
-    display: flex; align-items: center; justify-content: center;
+  .fact-item:last-child {
+    border-bottom: none;
+  }
+
+  .fact-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    min-width: 72px;
     flex-shrink: 0;
   }
 
-  .ig-card-handle { font-size: 15px; font-weight: 500; color: var(--white); }
-  .ig-card-sub    { font-size: 12px; color: var(--muted); }
-
-  .ig-card-note {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.6;
-    margin-bottom: 18px;
-    padding: 14px 16px;
-    background: rgba(255,255,255,0.03);
-    border-radius: 8px;
+  .fact-value {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.5;
   }
 
-  .ig-placeholder-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
-    margin-bottom: 18px;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .ig-ph-cell {
-    aspect-ratio: 1;
-    position: relative;
-  }
-
-  .ig-ph-cell::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(232,201,126,0.04), transparent);
-  }
-
-  .ig-view-profile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 13px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    color: var(--muted);
+  .fact-link {
+    color: var(--accent);
     text-decoration: none;
-    font-size: 13px;
-    transition: all 0.3s;
-    cursor: none;
+    transition: opacity 0.2s;
   }
-  .ig-view-profile:hover { border-color: var(--accent); color: var(--accent); }
+
+  .fact-link:hover {
+    opacity: 0.75;
+  }
 
   @media (max-width: 900px) {
     .personal-new-layout {

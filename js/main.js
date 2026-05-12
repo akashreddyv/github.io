@@ -406,14 +406,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('navLinks').classList.toggle('open');
   };
 
-  // ── Contact Form ──
-  window.handleForm = function (e) {
-    e.preventDefault();
-    const name  = document.getElementById('form-name').value;
-    const email = document.getElementById('form-email').value;
-    const msg   = document.getElementById('form-msg').value;
-    window.location.href = `mailto:mail@reachakash.com?subject=Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(msg + '\n\nFrom: ' + email)}`;
-  };
 
   // ── Custom Cursor ──
   const cursor    = document.getElementById('cursor');
@@ -434,7 +426,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   (function animateRing() {
-    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+    rx += (mx - rx) * 0.28; ry += (my - ry) * 0.28;
     cursorRing.style.left = rx + 'px'; cursorRing.style.top = ry + 'px';
     requestAnimationFrame(animateRing);
   })();
