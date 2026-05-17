@@ -4,12 +4,12 @@
 
 ## Pages
 
-- [Home](https://reachakash.com/): Landing page for Vurenuka Akash Reddy — software developer, creator, digital native.
-- [Personal](https://reachakash.com/personal): Personal background — techie, software developer, AI enthusiast, travel and adventure seeker. Based in Durham, NC; originally from Hyderabad, India.
-- [Professional](https://reachakash.com/professional): Career and education — Software Developer at Zoetis (2023–present), building ZAHM (.NET 4.8, C#, WinForms, PostgreSQL, NI-VISA). Education: MS Engineering Management (Arkansas State University, 2023–2024), MBA Digital Entrepreneurship (Amity University, 2023–2025), B.Tech Information Technology (Malla Reddy Institute of Technology, 2018–2022).
-- [Projects](https://reachakash.com/projects): Software portfolio — personal website reachakash.com (HTML/CSS/JS, GitHub Pages), 3D interactive logo viewer for Raptor Consultants Group (Three.js, SVG).
-- [Socials](https://reachakash.com/socials): Social media profiles — Instagram @ak.r48, LinkedIn @akashreddyv, X @AkReddy48, YouTube @ak.r48, Snapchat @ak.r48, Discord @ak.r48, Threads @ak.r48, Facebook @ak.r48.
-- [Contact](https://reachakash.com/contact): Contact Akash Reddy — LinkedIn, Instagram, or the contact form. Located in Durham, NC, USA.
+- [Home](https://reachakash.com/): Landing page for Vurenuka Akash Reddy, software developer, creator, digital native.
+- [Personal](https://reachakash.com/personal): Personal background. Techie, software developer, AI enthusiast, travel and adventure seeker. Based in Durham, NC; originally from Hyderabad, India.
+- [Professional](https://reachakash.com/professional): Career and education. Software Developer at Zoetis (2023-present), building ZAHM (.NET 4.8, C#, WinForms, PostgreSQL, NI-VISA). Education: MS Engineering Management (Arkansas State University, 2023-2024), MBA Digital Entrepreneurship (Amity University, 2023-2025), B.Tech Information Technology (Malla Reddy Institute of Technology, 2018-2022).
+- [Projects](https://reachakash.com/projects): Software portfolio, including personal website reachakash.com (HTML/CSS/JS, GitHub Pages) and a 3D interactive logo viewer for Raptor Consultants Group (Three.js, SVG).
+- [Socials](https://reachakash.com/socials): Social media profiles. Instagram @ak.r48, LinkedIn @akashreddyv, X @AkReddy48, YouTube @ak.r48, Snapchat @ak.r48, Discord @ak.r48, Threads @ak.r48, Facebook @ak.r48.
+- [Contact](https://reachakash.com/contact): Contact Akash Reddy via LinkedIn, Instagram, or the contact form. Located in Durham, NC, USA.
 
 ## Identity
 

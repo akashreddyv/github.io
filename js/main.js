@@ -4,10 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const PAGE_META = {
     home: {
       title:       'Akash Reddy | Software Developer',
-      description: 'Personal site of Vurenuka Akash Reddy (Akash Reddy, V Akash Reddy) — Software Developer at Zoetis in Durham, NC. Explore work, projects, and more.',
+      description: 'Personal site of Vurenuka Akash Reddy (Akash Reddy, V Akash Reddy), Software Developer at Zoetis in Durham, NC. Explore work, projects, and more.',
       canonical:   'https://reachakash.com/',
       ogType:      'profile',
-      ogTitle:     'Akash Reddy — Software Developer',
+      ogTitle:     'Akash Reddy, Software Developer',
       ogDesc:      'Akash Reddy (V Akash Reddy) is a software developer at Zoetis based in Durham, NC. Explore his work, projects, and background at reachakash.com.',
       jsonld: {
         '@context': 'https://schema.org',
@@ -47,11 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     personal: {
       title:       'Akash Reddy | Personal',
-      description: 'Get to know Akash Reddy (Vurenuka Akash Reddy) — techie, software developer, and travel enthusiast based in Durham, NC, originally from Hyderabad, India.',
+      description: 'Get to know Akash Reddy (Vurenuka Akash Reddy), techie, software developer, and travel enthusiast based in Durham, NC, originally from Hyderabad, India.',
       canonical:   'https://reachakash.com/personal',
       ogType:      'website',
-      ogTitle:     'Akash Reddy — Personal Background & Interests',
-      ogDesc:      'Get to know Akash Reddy (Vurenuka Akash Reddy) — software developer, travel enthusiast, and creator based in Durham, NC, originally from Hyderabad.',
+      ogTitle:     'Akash Reddy, Personal Background and Interests',
+      ogDesc:      'Get to know Akash Reddy (Vurenuka Akash Reddy), software developer, travel enthusiast, and creator based in Durham, NC, originally from Hyderabad.',
       jsonld: [
         {
           '@context': 'https://schema.org',
@@ -77,10 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     professional: {
       title:       'Akash Reddy | Professional',
-      description: 'Career timeline and skills of Akash Reddy (V Akash Reddy) — Software Developer at Zoetis. C#, .NET, PostgreSQL, and more. MS Engineering Management, Arkansas State.',
+      description: 'Career timeline and skills of Akash Reddy (V Akash Reddy), Software Developer at Zoetis. C#, .NET, PostgreSQL, and more. MS Engineering Management, Arkansas State.',
       canonical:   'https://reachakash.com/professional',
       ogType:      'website',
-      ogTitle:     'Akash Reddy — Professional Experience & Skills',
+      ogTitle:     'Akash Reddy, Professional Experience and Skills',
       ogDesc:      'Software Developer at Zoetis, Durham NC. C#, .NET, PostgreSQL, NI-VISA. MS Engineering Management from Arkansas State University.',
       jsonld: [
         {
@@ -116,29 +116,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     projects: {
       title:       'Akash Reddy | Projects',
-      description: 'Software projects and portfolio of V Akash Reddy (Vurenuka Akash Reddy) — personal website built with vanilla JS, 3D interactive logo viewer, and more.',
+      description: 'Software projects and portfolio of V Akash Reddy (Vurenuka Akash Reddy), including a personal website built with vanilla JS, a 3D interactive logo viewer, and more.',
       canonical:   'https://reachakash.com/projects',
       ogType:      'website',
-      ogTitle:     'V Akash Reddy — Software Projects & Portfolio',
-      ogDesc:      'Software projects by V Akash Reddy — personal website, 3D logo viewer built with Three.js, and more. HTML, CSS, JavaScript, and C# / .NET.',
+      ogTitle:     'V Akash Reddy, Software Projects and Portfolio',
+      ogDesc:      'Software projects by V Akash Reddy: personal website, 3D logo viewer built with Three.js, and more. HTML, CSS, JavaScript, and C# / .NET.',
       jsonld: [
         {
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: 'Projects — Akash Reddy',
+          name: 'Projects by Akash Reddy',
           description: 'Software projects and portfolio of Vurenuka Akash Reddy',
           author: { '@type': 'Person', name: 'Vurenuka Akash Reddy', url: 'https://reachakash.com' },
           hasPart: [
             {
               '@type': 'CreativeWork',
-              name: 'reachakash.com — Personal Portfolio Website',
+              name: 'reachakash.com, Personal Portfolio Website',
               description: 'A multi-page personal portfolio built with HTML, CSS, and vanilla JavaScript. Hosted on GitHub Pages with History API routing.',
               url: 'https://reachakash.com',
               creator: { '@type': 'Person', name: 'Vurenuka Akash Reddy' }
             },
             {
               '@type': 'CreativeWork',
-              name: 'Raptor Consultants Group — 3D Interactive Logo',
+              name: 'Raptor Consultants Group, 3D Interactive Logo',
               description: '3D interactive logo viewer built with Three.js, featuring crystal and SVG extrusion modes with real-time controls.',
               creator: { '@type': 'Person', name: 'Vurenuka Akash Reddy' }
             }
@@ -157,11 +157,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     socials: {
       title:       'Akash Reddy | Socials',
-      description: 'Social media profiles of Akash Reddy (V Akash Reddy / Vurenuka Akash Reddy) — Instagram, LinkedIn, X, YouTube, Snapchat, Discord, Threads, and Facebook.',
+      description: 'Social media profiles of Akash Reddy (V Akash Reddy / Vurenuka Akash Reddy): Instagram, LinkedIn, X, YouTube, Snapchat, Discord, Threads, and Facebook.',
       canonical:   'https://reachakash.com/socials',
       ogType:      'website',
-      ogTitle:     'Find Akash Reddy Online — Social Media Profiles',
-      ogDesc:      'All social profiles of Akash Reddy — Instagram @ak.r48, LinkedIn @akashreddyv, X @AkReddy48, YouTube @ak.r48 and more.',
+      ogTitle:     'Find Akash Reddy Online, Social Media Profiles',
+      ogDesc:      'All social profiles of Akash Reddy: Instagram @ak.r48, LinkedIn @akashreddyv, X @AkReddy48, YouTube @ak.r48 and more.',
       jsonld: [
         {
           '@context': 'https://schema.org',
@@ -193,17 +193,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     contact: {
       title:       'Akash Reddy | Contact',
-      description: 'Contact Vurenuka Akash Reddy (Akash Reddy, V Akash Reddy) — reach out for work, collaboration, or just to connect. Based in Durham, NC.',
+      description: 'Contact Vurenuka Akash Reddy (Akash Reddy, V Akash Reddy). Reach out for work, collaboration, or just to connect. Based in Durham, NC.',
       canonical:   'https://reachakash.com/contact',
       ogType:      'website',
-      ogTitle:     'Contact Akash Reddy — Get In Touch',
+      ogTitle:     'Contact Akash Reddy, Get In Touch',
       ogDesc:      'Reach Akash Reddy (V Akash Reddy / Vurenuka Akash Reddy) for work, collaboration, or to connect. LinkedIn, Instagram, or the contact form.',
       jsonld: [
         {
           '@context': 'https://schema.org',
           '@type': 'ContactPage',
           name: 'Contact Akash Reddy',
-          description: 'Contact page for Vurenuka Akash Reddy — software developer in Durham, NC',
+          description: 'Contact page for Vurenuka Akash Reddy, software developer in Durham, NC',
           url: 'https://reachakash.com/contact',
           mainEntity: {
             '@type': 'Person',
@@ -224,16 +224,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     gallery: {
       title:       'Akash Reddy | Gallery',
-      description: 'Photos of Akash Reddy (Vurenuka Akash Reddy, V Akash Reddy) — software developer based in Durham, NC, originally from Hyderabad, India.',
+      description: 'Photos of Akash Reddy (Vurenuka Akash Reddy, V Akash Reddy), software developer based in Durham, NC, originally from Hyderabad, India.',
       canonical:   'https://reachakash.com/gallery',
       ogType:      'website',
-      ogTitle:     'Akash Reddy — Photo Gallery',
-      ogDesc:      'Photo gallery of Vurenuka Akash Reddy (Akash Reddy, V Akash Reddy) — software developer in Durham, NC.',
+      ogTitle:     'Akash Reddy Photo Gallery',
+      ogDesc:      'Photo gallery of Vurenuka Akash Reddy (Akash Reddy, V Akash Reddy), software developer in Durham, NC.',
       jsonld: [
         {
           '@context': 'https://schema.org',
           '@type': 'ImageGallery',
-          name: 'Akash Reddy — Photo Gallery',
+          name: 'Akash Reddy Photo Gallery',
           description: 'Photos of Vurenuka Akash Reddy (Akash Reddy, V Akash Reddy), software developer in Durham, NC, originally from Hyderabad, India.',
           url: 'https://reachakash.com/gallery',
           author: { '@type': 'Person', name: 'Vurenuka Akash Reddy', url: 'https://reachakash.com' },
@@ -241,15 +241,15 @@ document.addEventListener("DOMContentLoaded", function () {
             {
               '@type': 'ImageObject',
               contentUrl: 'https://reachakash.com/images/home/vurenuka-akash-reddy-professional.jpg',
-              name: 'Vurenuka Akash Reddy — Professional Portrait',
+              name: 'Vurenuka Akash Reddy, Professional Portrait',
               description: 'Akash Reddy in professional attire outdoors, software developer at Zoetis, Durham NC',
               width: 1200, height: 847
             },
             {
               '@type': 'ImageObject',
               contentUrl: 'https://reachakash.com/images/home/akash-reddy-portrait.jpg',
-              name: 'Akash Reddy — Portrait',
-              description: 'V Akash Reddy — candid outdoor portrait, smiling',
+              name: 'Akash Reddy Portrait',
+              description: 'V Akash Reddy, candid outdoor portrait, smiling',
               width: 1200, height: 1600
             }
           ]
