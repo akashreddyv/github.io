@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ── Per-page SEO metadata ──────────────────────────────────────
   const PAGE_META = {
     home: {
-      title:       'Akash Reddy | Software Developer in Durham, NC',
+      title:       'Akash Reddy | Software Developer',
       description: 'Personal site of Vurenuka Akash Reddy (Akash Reddy, V Akash Reddy) — Software Developer at Zoetis in Durham, NC. Explore work, projects, and more.',
       canonical:   'https://reachakash.com/',
       ogType:      'profile',
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     personal: {
-      title:       'Akash Reddy — Personal Life & Background | reachakash.com',
+      title:       'Akash Reddy | Personal',
       description: 'Get to know Akash Reddy (Vurenuka Akash Reddy) — techie, software developer, and travel enthusiast based in Durham, NC, originally from Hyderabad, India.',
       canonical:   'https://reachakash.com/personal',
       ogType:      'website',
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     professional: {
-      title:       'Akash Reddy — Professional Experience & Skills | Zoetis',
+      title:       'Akash Reddy | Professional',
       description: 'Career timeline and skills of Akash Reddy (V Akash Reddy) — Software Developer at Zoetis. C#, .NET, PostgreSQL, and more. MS Engineering Management, Arkansas State.',
       canonical:   'https://reachakash.com/professional',
       ogType:      'website',
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     projects: {
-      title:       'V Akash Reddy — Software Projects & Portfolio | reachakash.com',
+      title:       'Akash Reddy | Projects',
       description: 'Software projects and portfolio of V Akash Reddy (Vurenuka Akash Reddy) — personal website built with vanilla JS, 3D interactive logo viewer, and more.',
       canonical:   'https://reachakash.com/projects',
       ogType:      'website',
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     socials: {
-      title:       'Find Akash Reddy Online — Social Media Profiles',
+      title:       'Akash Reddy | Socials',
       description: 'Social media profiles of Akash Reddy (V Akash Reddy / Vurenuka Akash Reddy) — Instagram, LinkedIn, X, YouTube, Snapchat, Discord, Threads, and Facebook.',
       canonical:   'https://reachakash.com/socials',
       ogType:      'website',
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     contact: {
-      title:       'Contact Akash Reddy — Get In Touch | reachakash.com',
+      title:       'Akash Reddy | Contact',
       description: 'Contact Vurenuka Akash Reddy (Akash Reddy, V Akash Reddy) — reach out for work, collaboration, or just to connect. Based in Durham, NC.',
       canonical:   'https://reachakash.com/contact',
       ogType:      'website',
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     gallery: {
-      title:       'Akash Reddy — Photo Gallery | reachakash.com',
+      title:       'Akash Reddy | Gallery',
       description: 'Photos of Akash Reddy (Vurenuka Akash Reddy, V Akash Reddy) — software developer based in Durham, NC, originally from Hyderabad, India.',
       canonical:   'https://reachakash.com/gallery',
       ogType:      'website',
@@ -373,6 +373,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.getElementById('navLinks').classList.remove('open');
       attachCursorEvents();
+      if (name === 'contact') attachContactForm();
 
     } catch (err) {
       console.error('Routing Error:', err);
@@ -408,6 +409,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   function attachCursorEvents() {}
+
+  // ── Contact Form ──
+  function attachContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const btn    = document.getElementById('form-submit');
+      const status = document.getElementById('form-status');
+
+      btn.disabled    = true;
+      btn.textContent = 'Sending…';
+      status.style.display = 'none';
+
+      try {
+        const res  = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+        const data = await res.json();
+
+        if (data.success) {
+          status.textContent         = "Message sent! I'll get back to you soon.";
+          status.style.background    = 'rgba(232,201,126,0.12)';
+          status.style.border        = '1px solid rgba(232,201,126,0.4)';
+          status.style.color         = '#e8c97e';
+          status.style.display       = 'block';
+          form.reset();
+        } else {
+          throw new Error(data.error || 'Something went wrong.');
+        }
+      } catch (err) {
+        status.textContent         = err.message || 'Failed to send. Please try again.';
+        status.style.background    = 'rgba(220,50,50,0.1)';
+        status.style.border        = '1px solid rgba(220,50,50,0.4)';
+        status.style.color         = '#ff6b6b';
+        status.style.display       = 'block';
+      } finally {
+        btn.disabled    = false;
+        btn.textContent = 'Send Message';
+      }
+    });
+  }
+
+  // ── AR logo → toggle 90s retro theme ──
+  (function () {
+    if (localStorage.getItem('retro-theme') === '1') {
+      document.body.classList.add('theme-retro');
+    }
+
+    const navLogo = document.querySelector('.nav-logo');
+    if (!navLogo) return;
+
+    navLogo.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const on = document.body.classList.toggle('theme-retro');
+      localStorage.setItem('retro-theme', on ? '1' : '');
+      showPage('home', true);
+    });
+  })();
 
   // ── Initial route ──
   const initialName = ROUTE_MAP[location.pathname] || 'home';

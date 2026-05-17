@@ -767,6 +767,370 @@ footer p      { font-size: 12px; color: var(--muted); }
 }
 
 
+/* ================================================================
+   90s RETRO THEME
+   Toggled by clicking the AR logo. Overrides the dark/gold theme
+   with a Windows 95 / old-PC aesthetic.
+================================================================ */
+
+body.theme-retro {
+  --bg:           #c0c0c0;
+  --surface:      #c0c0c0;
+  --card:         #c0c0c0;
+  --border:       #808080;
+  --accent:       #000080;
+  --text:         #000000;
+  --muted:        #444444;
+  --white:        #000000;
+  --font-display: 'VT323', 'Courier New', monospace;
+  --font-body:    'Arial', 'MS Sans Serif', sans-serif;
+  background: #008080;
+}
+
+/* Remove gold grain, add CRT scanlines */
+body.theme-retro::before { display: none; }
+body.theme-retro::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent, transparent 2px,
+    rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 9997;
+}
+
+/* Content area = the window on the teal desktop */
+body.theme-retro #page-container { background: #c0c0c0; }
+
+/* ── NAV = WINDOWS TITLE BAR ── */
+body.theme-retro nav {
+  background: linear-gradient(to right, #000080, #1084d0);
+  border-bottom: 3px solid #c0c0c0;
+  backdrop-filter: none;
+  box-shadow: 0 3px 0 #808080;
+}
+
+body.theme-retro .nav-logo {
+  font-family: 'VT323', monospace;
+  font-size: 22px;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+}
+
+body.theme-retro .nav-links a,
+body.theme-retro .nav-links button {
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+  color: #c0c0c0;
+  border-radius: 0;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+body.theme-retro .nav-links a:hover,
+body.theme-retro .nav-links button:hover {
+  color: #ffffff;
+  background: rgba(255,255,255,0.12);
+}
+body.theme-retro .nav-links a.active,
+body.theme-retro .nav-links button.active {
+  color: #ffffff;
+  background: rgba(255,255,255,0.2);
+  border-bottom: 2px solid #ffffff;
+}
+
+body.theme-retro .nav-hamburger span { background: #ffffff; }
+
+/* ── TYPOGRAPHY ── */
+body.theme-retro h1,
+body.theme-retro h2,
+body.theme-retro h3 {
+  font-family: 'VT323', 'Courier New', monospace;
+  color: #000080;
+  letter-spacing: 0.04em;
+}
+body.theme-retro em { font-style: normal; color: #000080; }
+
+body.theme-retro .page-eyebrow {
+  font-family: 'Courier New', monospace;
+  color: #000080;
+  border-bottom: 1px solid #808080;
+  padding-bottom: 4px;
+}
+body.theme-retro .page-title { color: #000080; }
+body.theme-retro .page-subtitle { font-family: 'Arial', sans-serif; color: #444444; }
+
+/* Home */
+body.theme-retro .home-eyebrow { font-family: 'Courier New', monospace; color: #000080; }
+body.theme-retro .home-name { font-family: 'VT323', monospace; color: #000080; text-shadow: 2px 2px 0 rgba(0,0,128,0.15); }
+body.theme-retro .home-name span { color: #000080; }
+body.theme-retro .home-tagline { font-family: 'Courier New', monospace; color: #444444; font-size: 14px; }
+body.theme-retro .home-grid-bg { display: none; }
+
+/* Personal */
+body.theme-retro .personal-greeting { font-family: 'Courier New', monospace; color: #000080; }
+body.theme-retro .personal-bigname { font-family: 'VT323', monospace; font-size: clamp(60px, 8vw, 100px); color: #000080; }
+body.theme-retro .personal-bio p { font-family: 'Courier New', monospace; color: #000000; }
+body.theme-retro .personal-work-label { font-family: 'Courier New', monospace; color: #000080; }
+body.theme-retro .personal-work-sub { font-family: 'Arial', sans-serif; color: #444444; }
+body.theme-retro .personal-divider { height: 2px; background: none; border-top: 1px solid #808080; border-bottom: 1px solid #ffffff; }
+
+/* ── BUTTONS — classic 3D raised ── */
+body.theme-retro .btn,
+body.theme-retro .btn-primary,
+body.theme-retro .btn-outline {
+  background: #c0c0c0 !important;
+  color: #000000 !important;
+  border-radius: 0 !important;
+  font-family: 'Arial', sans-serif !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-size: 12px !important;
+  border: 2px solid !important;
+  border-top-color: #ffffff !important;
+  border-left-color: #ffffff !important;
+  border-right-color: #808080 !important;
+  border-bottom-color: #808080 !important;
+  box-shadow: 1px 1px 0 #000000 !important;
+}
+body.theme-retro .btn:hover,
+body.theme-retro .btn-primary:hover,
+body.theme-retro .btn-outline:hover {
+  background: #d4d0c8 !important;
+  color: #000000 !important;
+}
+body.theme-retro .btn:active,
+body.theme-retro .btn-primary:active,
+body.theme-retro .btn-outline:active {
+  border-top-color: #808080 !important;
+  border-left-color: #808080 !important;
+  border-right-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  box-shadow: none !important;
+  transform: translate(1px, 1px) !important;
+}
+
+/* ── CARDS — 3D window chrome ── */
+body.theme-retro .home-card,
+body.theme-retro .project-card,
+body.theme-retro .card {
+  background: #c0c0c0;
+  border-radius: 0;
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  box-shadow: 2px 2px 0 #000000;
+}
+body.theme-retro .home-card:hover,
+body.theme-retro .project-card:hover {
+  transform: none;
+  background: #d4d0c8;
+  box-shadow: 2px 2px 0 #000000;
+}
+body.theme-retro .home-card-title { font-family: 'Arial', sans-serif; color: #000000; font-weight: bold; font-size: 13px; }
+body.theme-retro .home-card-desc  { font-family: 'Arial', sans-serif; color: #444444; font-size: 11px; }
+body.theme-retro .home-card-arrow { color: #000080; }
+
+/* ── SOCIAL CARDS ── */
+body.theme-retro .social-card {
+  background: #c0c0c0;
+  border-radius: 0;
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  box-shadow: 2px 2px 0 #000000;
+  color: #000000;
+}
+body.theme-retro .social-card:hover {
+  background: #000080;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  transform: none;
+}
+body.theme-retro .social-name { color: #000000; font-family: 'Arial', sans-serif; font-size: 13px; }
+body.theme-retro .social-handle { color: #444444; font-family: 'Courier New', monospace; font-size: 11px; }
+body.theme-retro .social-arrow { color: #000080; }
+body.theme-retro .social-card:hover .social-name,
+body.theme-retro .social-card:hover .social-handle,
+body.theme-retro .social-card:hover .social-arrow { color: #ffffff; }
+body.theme-retro .social-icon { border-radius: 0; }
+
+/* ── TAGS ── */
+body.theme-retro .tag {
+  background: #000080;
+  color: #ffffff;
+  border-radius: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  border: 1px solid #0000a8;
+}
+
+/* ── TIMELINE ── */
+body.theme-retro .timeline-item {
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  background: #c0c0c0;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+body.theme-retro .timeline-date { font-family: 'Courier New', monospace; color: #000080; }
+body.theme-retro .timeline-content h2 { font-family: 'VT323', monospace; color: #000080; font-size: 28px; }
+body.theme-retro .timeline-content h3 { font-family: 'Arial', sans-serif; color: #000000; font-size: 14px; }
+
+/* ── EDUCATION ── */
+body.theme-retro .edu-card-big,
+body.theme-retro .edu-card-small {
+  background: #c0c0c0;
+  border-radius: 0;
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  transform: none;
+}
+body.theme-retro .edu-card-big:hover { transform: none; border-color: #000080; }
+body.theme-retro .edu-name   { color: #000000; font-family: 'Arial', sans-serif; font-weight: bold; }
+body.theme-retro .edu-location, body.theme-retro .edu-meta { color: #444444; font-family: 'Arial', sans-serif; }
+body.theme-retro .edu-degree { color: #000080; font-family: 'Courier New', monospace; }
+body.theme-retro .edu-year   { color: #808000; font-family: 'Courier New', monospace; }
+body.theme-retro .edu-logo   { border-radius: 0; image-rendering: pixelated; }
+
+/* Skills */
+body.theme-retro .skills-heading { font-family: 'VT323', monospace; color: #000080; }
+body.theme-retro .card-label { font-family: 'Courier New', monospace; color: #000080; font-size: 10px; }
+
+/* Projects */
+body.theme-retro .project-title  { font-family: 'Arial', sans-serif; font-weight: bold; color: #000000; }
+body.theme-retro .project-org    { font-family: 'Courier New', monospace; color: #000080; font-size: 11px; }
+body.theme-retro .project-desc   { font-family: 'Arial', sans-serif; color: #444444; font-size: 13px; }
+body.theme-retro .project-status { border-radius: 0; font-family: 'Courier New', monospace; font-size: 10px; }
+body.theme-retro .status-active  { background: #000080; color: #ffffff; }
+body.theme-retro .status-wip     { background: #808000; color: #ffffff; }
+
+/* ── FORMS ── */
+body.theme-retro input[type="text"],
+body.theme-retro input[type="email"],
+body.theme-retro textarea {
+  background: #ffffff;
+  color: #000000;
+  border-radius: 0;
+  font-family: 'Courier New', monospace;
+  border: 2px solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+body.theme-retro input::placeholder,
+body.theme-retro textarea::placeholder { color: #888888; font-family: 'Courier New', monospace; }
+body.theme-retro input:focus,
+body.theme-retro textarea:focus { outline: 1px dotted #000080; outline-offset: 2px; box-shadow: none; }
+body.theme-retro label { font-family: 'Arial', sans-serif; color: #000000; font-size: 12px; font-weight: bold; }
+
+/* ── CONTACT ── */
+body.theme-retro .contact-list a  { color: #000080; font-family: 'Arial', sans-serif; }
+body.theme-retro .contact-form-block {
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  padding: 20px;
+  background: #c0c0c0;
+}
+body.theme-retro .divider { background: none; border-top: 1px solid #808080; border-bottom: 1px solid #ffffff; height: 2px; }
+
+/* ── SLIDESHOW ── */
+body.theme-retro .home-slideshow {
+  border-radius: 0;
+  border: 2px solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+body.theme-retro .ss-dot { border-radius: 0; width: 10px; height: 10px; background: #808080; }
+body.theme-retro .ss-dot.active { background: #000080; }
+
+/* ── GALLERY ── */
+body.theme-retro .gallery-item {
+  border-radius: 0;
+  border: 2px solid;
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+body.theme-retro .gallery-item figcaption { font-family: 'Courier New', monospace; color: #444444; font-size: 11px; }
+
+/* ── FOOTER = TASKBAR ── */
+body.theme-retro footer {
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  box-shadow: 0 -1px 0 #808080;
+  color: #000000;
+}
+body.theme-retro .footer-logo { font-family: 'VT323', monospace; color: #000080; font-size: 22px; }
+body.theme-retro .footer-text { font-family: 'Arial', sans-serif; color: #000000; font-size: 11px; }
+
+/* Mobile nav in retro mode */
+body.theme-retro .nav-links.open {
+  background: #000080;
+  border-bottom: 3px solid #c0c0c0;
+}
+body.theme-retro .nav-links.open a,
+body.theme-retro .nav-links.open button { color: #ffffff; }
+
+/* Form status — override inline styles set by JS */
+body.theme-retro #form-status {
+  background: #c0c0c0 !important;
+  border: 2px solid !important;
+  border-top-color: #808080 !important;
+  border-left-color: #808080 !important;
+  border-right-color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
+  color: #000080 !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+/* ── SCROLLBAR ── */
+body.theme-retro ::-webkit-scrollbar { width: 16px; background: #c0c0c0; }
+body.theme-retro ::-webkit-scrollbar-track { background: #c0c0c0; border-left: 1px solid #808080; }
+body.theme-retro ::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  min-height: 20px;
+}
+body.theme-retro ::-webkit-scrollbar-button {
+  display: block;
+  height: 16px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+}
+
+
 /* ----------------------------------------------------------------
    15. RESPONSIVE (mobile / tablet)
 ---------------------------------------------------------------- */
